@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import teamPhoto from 'figma:asset/2829aa2210d9a77a5d115e2c6442c7a4f81c9e68.png';
 
 const teamMembers = [
@@ -21,6 +21,17 @@ const teamMembers = [
 export function Team() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    const newParticles = [...Array(10)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 4 + Math.random() * 2,
+      delay: Math.random() * 2,
+    }));
+    setParticles(newParticles);
+  }, []);
 
   return (
     <section 
@@ -35,22 +46,22 @@ export function Team() {
       
       {/* Subtle Particles */}
       <div className="absolute inset-0" aria-hidden="true">
-        {[...Array(10)].map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
               y: [0, -20, 0],
               opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 4 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}

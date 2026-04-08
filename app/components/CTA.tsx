@@ -1,11 +1,22 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 export function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    const newParticles = [...Array(20)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2,
+    }));
+    setParticles(newParticles);
+  }, []);
 
   return (
     <section id="contact" ref={ref} className="relative py-32 bg-gradient-to-b from-black via-slate-950 to-black overflow-hidden">
@@ -15,22 +26,22 @@ export function CTA() {
       
       {/* Animated Particles */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-blue-500/30 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.3, 0.8, 0.3],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}
