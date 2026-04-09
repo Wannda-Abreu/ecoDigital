@@ -166,14 +166,14 @@ export default function App() {
             <source src={HERO_IMAGE_URL} type="video/mp4" />
           </video>
 
-          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#2f2a25]/60 sm:inset-0 sm:h-full" />
+          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#2f2a25]/72 sm:inset-0 sm:h-full sm:bg-[#2f2a25]/60" />
 
-          <div className="relative z-10 max-w-xl px-2 text-white sm:max-w-2xl sm:px-6">
+          <div className="relative z-10 max-w-xl rounded-[1.75rem] bg-[#201b18]/30 px-4 py-5 text-white backdrop-blur-[2px] sm:max-w-2xl sm:bg-transparent sm:px-6 sm:py-0 sm:backdrop-blur-0">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={heroHeadingTransition}
-              className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl"
+              className="text-[2.15rem] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl sm:tracking-tight md:text-5xl"
             >
               Vende online sin dejar de ser tú
             </motion.h1>
@@ -182,7 +182,7 @@ export default function App() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={heroBodyTransition}
-              className="mt-4 text-sm leading-7 text-[#e7e0d6] sm:mt-6 sm:text-base"
+              className="mt-4 text-sm font-medium leading-7 text-[#f5eee4] sm:mt-6 sm:text-base"
             >
               Digitalizamos tu negocio artesanal para que consigas más clientes
               sin perder tu esencia.
@@ -213,20 +213,20 @@ export default function App() {
             Sabemos lo que te está pasando
           </h2>
 
-          <div className="mt-6 rounded-[2rem] border border-[#ddcfbd] bg-[#fffaf3] px-5 py-6 shadow-sm sm:mt-8 sm:px-6 sm:py-8">
-            <p className="mx-auto max-w-2xl text-left text-[1.05rem] font-medium leading-8 text-[#3f342b] sm:text-center sm:text-lg sm:leading-8">
+          <div className="mt-6 rounded-[2rem] border border-[#d6c6b1] bg-[#fffdf9] px-5 py-6 shadow-sm sm:mt-8 sm:px-6 sm:py-8">
+            <p className="mx-auto max-w-2xl text-left text-[1.05rem] font-semibold leading-8 text-[#16241d] sm:text-center sm:text-lg sm:leading-8">
               Tienes un negocio con valor, pero no sabes cómo vender online,
               no tienes tiempo para redes o tu web no genera ventas.
             </p>
 
-            <div className="mt-6 grid gap-3 text-sm text-[#4f4338] sm:mt-6 sm:flex sm:flex-wrap sm:justify-center">
-              <span className="rounded-2xl border border-[#eadbca] bg-[#f3eadf] px-4 py-3 text-left font-medium sm:rounded-full sm:px-4 sm:py-2">
+            <div className="mt-6 grid gap-3 text-sm text-[#16241d] sm:mt-6 sm:flex sm:flex-wrap sm:justify-center">
+              <span className="rounded-2xl border border-[#d8c8b4] bg-[#f7efe4] px-4 py-3 text-left font-semibold text-[#16241d] sm:rounded-full sm:px-4 sm:py-2">
                 Vender online
               </span>
-              <span className="rounded-2xl border border-[#eadbca] bg-[#f3eadf] px-4 py-3 text-left font-medium sm:rounded-full sm:px-4 sm:py-2">
+              <span className="rounded-2xl border border-[#d8c8b4] bg-[#f7efe4] px-4 py-3 text-left font-semibold text-[#16241d] sm:rounded-full sm:px-4 sm:py-2">
                 Falta de tiempo
               </span>
-              <span className="rounded-2xl border border-[#eadbca] bg-[#f3eadf] px-4 py-3 text-left font-medium sm:rounded-full sm:px-4 sm:py-2">
+              <span className="rounded-2xl border border-[#d8c8b4] bg-[#f7efe4] px-4 py-3 text-left font-semibold text-[#16241d] sm:rounded-full sm:px-4 sm:py-2">
                 Web sin resultados
               </span>
             </div>
