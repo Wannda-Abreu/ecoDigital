@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import {
+  BadgeCheck,
   BarChart3,
+  Clock3,
   Globe,
   Layout,
   PenTool,
   Search,
+  TrendingUp,
   Users,
 } from "lucide-react"
 
@@ -13,9 +16,9 @@ const WHATSAPP_URL = "https://wa.me/346XXXXXXXX"
 const LOGO_URL =
   "https://res.cloudinary.com/dsyfal3wa/image/upload/v1775741260/b35c18e0-823c-4e42-b7de-2631dbc14c15_gjqw7h.png"
 const HERO_IMAGE_URL =
-  "https://res.cloudinary.com/dsyfal3wa/image/upload/v1775737384/Neutral_Modern_Fashion_Website_2_liy16e.png"
+  "https://res.cloudinary.com/dsyfal3wa/video/upload/v1775761838/Untitled_500_x_200_px_1_rnrwmo.mp4"
 const SOLUTION_IMAGE_URL =
-  "https://res.cloudinary.com/dsyfal3wa/image/upload/v1775741232/ChatGPT_Image_9_abr_2026_15_22_29_ounidn.png"
+  "https://res.cloudinary.com/dsyfal3wa/video/upload/v1775765531/Untitled_1080_x_1080_px_ypsrkt.mp4"
 
 const services = [
   { title: "Creación de tienda online", icon: Globe },
@@ -27,10 +30,41 @@ const services = [
 ]
 
 const benefits = [
-  "✔ Más clientes sin depender del boca a boca",
-  "✔ Presencia online profesional",
-  "✔ Ahorro de tiempo",
-  "✔ Estrategia clara para crecer",
+  {
+    title: "Más clientes y recomendaciones",
+    icon: Users,
+  },
+  {
+    title: "Presencia online profesional",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Ahorro de tiempo",
+    icon: Clock3,
+  },
+  {
+    title: "Estrategia clara para crecer",
+    icon: TrendingUp,
+  },
+]
+
+const metrics = [
+  {
+    value: "24/7",
+    label: "Presencia digital activa",
+  },
+  {
+    value: "3",
+    label: "Bloques clave para crecer",
+  },
+  {
+    value: "1",
+    label: "Estrategia clara para avanzar",
+  },
+  {
+    value: "100%",
+    label: "Adaptado a tu esencia",
+  },
 ]
 
 const fadeUp = {
@@ -92,41 +126,54 @@ export default function App() {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-4">
           <img
             src={LOGO_URL}
             alt="Ecomercia"
-            className="w-36"
+            className="w-32 sm:w-36"
             decoding="async"
           />
 
-          <a
-            href={WHATSAPP_URL}
-            className="rounded-full bg-[#3F6B5B] px-5 py-2 text-sm text-white transition hover:scale-105"
-          >
-            Hablar ahora
-          </a>
+          <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:w-auto sm:flex-nowrap">
+            <a
+              href="#servicios"
+              className="rounded-full border border-[#d9cbb9] bg-white/70 px-4 py-2 text-xs text-[#2f2a25] transition hover:scale-105 sm:px-5 sm:text-sm"
+            >
+              Servicios
+            </a>
+
+            <a
+              href={WHATSAPP_URL}
+              className="rounded-full bg-[#3F6B5B] px-4 py-2 text-xs text-white transition hover:scale-105 sm:px-5 sm:text-sm"
+            >
+              Hablar ahora
+            </a>
+          </div>
         </div>
       </header>
 
-      <main className="flex flex-col gap-32">
-        <section className="relative flex h-[90vh] w-full items-center justify-center text-center">
-          <img
-            src={HERO_IMAGE_URL}
-            alt=""
-            aria-hidden="true"
+      <main className="flex flex-col gap-20 sm:gap-24 lg:gap-32">
+        <section className="relative flex min-h-[calc(100svh-8rem)] w-full items-center justify-center px-4 text-center sm:h-[90vh] sm:px-6">
+          <video
             className="absolute inset-0 h-full w-full object-cover"
-            fetchPriority="high"
-          />
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          >
+            <source src={HERO_IMAGE_URL} type="video/mp4" />
+          </video>
 
           <div className="absolute inset-0 bg-[#2f2a25]/60" />
 
-          <div className="relative z-10 max-w-2xl px-6 text-white">
+          <div className="relative z-10 max-w-xl px-4 text-white sm:max-w-2xl sm:px-6">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={heroHeadingTransition}
-              className="text-4xl font-semibold tracking-tight md:text-5xl"
+              className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl"
             >
               Vende online sin dejar de ser tú
             </motion.h1>
@@ -135,18 +182,18 @@ export default function App() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={heroBodyTransition}
-              className="mt-6 text-[#e7e0d6]"
+              className="mt-4 text-sm leading-7 text-[#e7e0d6] sm:mt-6 sm:text-base"
             >
               Digitalizamos tu negocio artesanal para que consigas más clientes
               sin perder tu esencia.
             </motion.p>
 
             <motion.a
-              href={WHATSAPP_URL}
+              href="#problema"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={heroCtaTransition}
-              className="mt-8 inline-block rounded-full bg-white px-8 py-3 text-[#2f2a25] transition hover:scale-105"
+              className="mt-6 inline-block w-full rounded-full bg-white px-6 py-3 text-[#2f2a25] transition hover:scale-105 sm:mt-8 sm:w-auto sm:px-8"
             >
               Quiero empezar
             </motion.a>
@@ -154,21 +201,36 @@ export default function App() {
         </section>
 
         <motion.section
+          id="problema"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-4xl px-6 text-center"
+          className="mx-auto max-w-4xl scroll-mt-32 px-4 text-center sm:scroll-mt-28 sm:px-6"
         >
-          <h2 className="text-2xl font-semibold tracking-tight">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Sabemos lo que te está pasando
           </h2>
 
-          <p className="mt-6 text-[#5c5145]">
-            Tienes un negocio con valor, pero no sabes cómo vender online, no
-            tienes tiempo para redes o tu web no genera ventas.
-          </p>
+          <div className="mt-6 rounded-[2rem] border border-[#e8ddcf] bg-[#fffaf3] px-5 py-6 shadow-sm sm:mt-8 sm:px-6 sm:py-8">
+            <p className="mx-auto max-w-2xl text-base leading-7 text-[#5c5145] sm:text-lg sm:leading-8">
+              Tienes un negocio con valor, pero no sabes cómo vender online,
+              no tienes tiempo para redes o tu web no genera ventas.
+            </p>
+
+            <div className="mt-5 flex flex-wrap justify-center gap-3 text-sm text-[#5c5145] sm:mt-6">
+              <span className="rounded-full bg-[#f3eadf] px-3 py-2 sm:px-4">
+                Vender online
+              </span>
+              <span className="rounded-full bg-[#f3eadf] px-3 py-2 sm:px-4">
+                Falta de tiempo
+              </span>
+              <span className="rounded-full bg-[#f3eadf] px-3 py-2 sm:px-4">
+                Web sin resultados
+              </span>
+            </div>
+          </div>
         </motion.section>
 
         <motion.section
@@ -176,28 +238,37 @@ export default function App() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="px-6 text-center"
+          className="px-4 text-center sm:px-6"
         >
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Nosotros lo hacemos por ti
           </h2>
 
-          <img
-            src={SOLUTION_IMAGE_URL}
-            alt="Vista previa del servicio digital para negocios artesanales"
-            className="mx-auto mt-10 w-full max-w-4xl rounded-[2rem] object-cover shadow-lg"
-            loading="lazy"
-            decoding="async"
-          />
+          <div className="mx-auto mt-8 aspect-[4/5] w-full max-w-4xl overflow-hidden rounded-[2rem] shadow-lg sm:mt-10 sm:aspect-[16/10]">
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Vista previa del servicio digital para negocios artesanales"
+            >
+              <source src={SOLUTION_IMAGE_URL} type="video/mp4" />
+            </video>
+          </div>
 
-          <p className="mx-auto mt-6 max-w-2xl text-[#5c5145]">
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#5c5145] sm:text-base">
             Creamos tu presencia digital completa adaptada a tu esencia
             artesanal.
           </p>
         </motion.section>
 
-        <section className="mx-auto max-w-6xl px-6 text-center">
-          <h2 className="mb-12 text-3xl font-semibold tracking-tight">
+        <section
+          id="servicios"
+          className="mx-auto max-w-6xl scroll-mt-32 px-4 text-center sm:scroll-mt-28 sm:px-6"
+        >
+          <h2 className="mb-8 text-3xl font-semibold tracking-tight sm:mb-12 sm:text-4xl">
             Cómo te ayudamos
           </h2>
 
@@ -206,14 +277,14 @@ export default function App() {
             whileInView="show"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid gap-8 sm:grid-cols-2 md:grid-cols-3"
+            className="grid gap-5 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-8"
           >
             {services.map(({ title, icon: Icon }) => (
               <motion.div
                 key={title}
                 variants={fadeUp}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="rounded-2xl bg-[#FFFAF3] p-6 shadow-sm transition-all hover:shadow-md"
+                className="rounded-2xl bg-[#FFFAF3] p-5 shadow-sm transition-all hover:shadow-md sm:p-6"
               >
                 <Icon className="mb-4 text-[#3F6B5B]" />
                 <p className="font-medium">{title}</p>
@@ -227,27 +298,65 @@ export default function App() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mx-auto max-w-4xl px-6 text-center"
+          className="mx-auto max-w-4xl px-4 text-center sm:px-6"
         >
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Lo que vas a conseguir
           </h2>
 
-          <ul className="mt-8 space-y-4 text-[#5c5145]">
-            {benefits.map((benefit) => (
-              <li key={benefit}>{benefit}</li>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mt-8 grid gap-4 text-left sm:mt-10 sm:grid-cols-2 sm:gap-5"
+          >
+            {benefits.map(({ title, icon: Icon }) => (
+              <motion.div
+                key={title}
+                variants={fadeUp}
+                whileHover={{ y: -6, scale: 1.01 }}
+                className="flex items-center gap-4 rounded-3xl border border-[#e8ddcf] bg-[#fffaf3] px-4 py-4 shadow-sm transition-all hover:shadow-md sm:px-5 sm:py-5"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#3F6B5B] text-white shadow-sm">
+                  <Icon className="h-5 w-5" />
+                </div>
+
+                <p className="text-base font-medium text-[#5c5145]">{title}</p>
+              </motion.div>
             ))}
-          </ul>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4"
+          >
+            {metrics.map(({ value, label }) => (
+              <motion.div
+                key={label}
+                variants={fadeUp}
+                className="rounded-3xl border border-[#e8ddcf] bg-[#f9f2e9] px-4 py-5 shadow-sm sm:px-5 sm:py-6"
+              >
+                <p className="text-2xl font-semibold tracking-tight text-[#3F6B5B] sm:text-3xl">
+                  {value}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[#5c5145]">{label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.section>
 
-        <section className="px-6 py-20 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight">
+        <section className="px-4 py-16 text-center sm:px-6 sm:py-20">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Empieza hoy a vender online
           </h2>
 
           <a
             href={WHATSAPP_URL}
-            className="mt-6 inline-block rounded-full bg-[#3F6B5B] px-8 py-3 text-white transition hover:scale-105"
+            className="mt-6 inline-block w-full rounded-full bg-[#3F6B5B] px-8 py-3 text-white transition hover:scale-105 sm:w-auto"
           >
             Hablar por WhatsApp
           </a>
@@ -256,7 +365,7 @@ export default function App() {
 
       <a
         href={WHATSAPP_URL}
-        className="fixed bottom-6 right-6 rounded-full bg-[#3F6B5B] px-5 py-3 text-white shadow-lg transition hover:scale-110 animate-bounce"
+        className="fixed bottom-4 right-4 rounded-full bg-[#3F6B5B] px-4 py-2.5 text-sm text-white shadow-lg transition hover:scale-110 animate-bounce sm:bottom-6 sm:right-6 sm:px-5 sm:py-3 sm:text-base"
       >
         WhatsApp
       </a>
