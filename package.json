@@ -1,9 +1,9 @@
 {
-  "name": "enlineadigital",
+  "name": "ecodigital",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://wannda-abreu.github.io/EnlineaDigital/",
+  "homepage": "https://wannda-abreu.github.io/ecoDigital/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
