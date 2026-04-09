@@ -213,20 +213,20 @@ export default function App() {
             Sabemos lo que te está pasando
           </h2>
 
-          <div className="mt-6 rounded-[2rem] border border-[#e8ddcf] bg-[#fffaf3] px-5 py-6 shadow-sm sm:mt-8 sm:px-6 sm:py-8">
-            <p className="mx-auto max-w-2xl text-base leading-7 text-[#5c5145] sm:text-lg sm:leading-8">
+          <div className="mt-6 rounded-[2rem] border border-[#ddcfbd] bg-[#fffaf3] px-5 py-6 shadow-sm sm:mt-8 sm:px-6 sm:py-8">
+            <p className="mx-auto max-w-2xl text-left text-[1.05rem] font-medium leading-8 text-[#3f342b] sm:text-center sm:text-lg sm:leading-8">
               Tienes un negocio con valor, pero no sabes cómo vender online,
               no tienes tiempo para redes o tu web no genera ventas.
             </p>
 
-            <div className="mt-5 flex flex-wrap justify-center gap-3 text-sm text-[#5c5145] sm:mt-6">
-              <span className="rounded-full bg-[#f3eadf] px-3 py-2 sm:px-4">
+            <div className="mt-6 grid gap-3 text-sm text-[#4f4338] sm:mt-6 sm:flex sm:flex-wrap sm:justify-center">
+              <span className="rounded-2xl border border-[#eadbca] bg-[#f3eadf] px-4 py-3 text-left font-medium sm:rounded-full sm:px-4 sm:py-2">
                 Vender online
               </span>
-              <span className="rounded-full bg-[#f3eadf] px-3 py-2 sm:px-4">
+              <span className="rounded-2xl border border-[#eadbca] bg-[#f3eadf] px-4 py-3 text-left font-medium sm:rounded-full sm:px-4 sm:py-2">
                 Falta de tiempo
               </span>
-              <span className="rounded-full bg-[#f3eadf] px-3 py-2 sm:px-4">
+              <span className="rounded-2xl border border-[#eadbca] bg-[#f3eadf] px-4 py-3 text-left font-medium sm:rounded-full sm:px-4 sm:py-2">
                 Web sin resultados
               </span>
             </div>
