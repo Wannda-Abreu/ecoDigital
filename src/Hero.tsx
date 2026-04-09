@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 
 export default function Hero() {
   return (
@@ -6,6 +6,8 @@ export default function Hero() {
 
       <img
         src="https://res.cloudinary.com/dsyfal3wa/image/upload/v1775737384/Neutral_Modern_Fashion_Website_2_liy16e.png"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
