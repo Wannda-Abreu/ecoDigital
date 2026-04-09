@@ -153,9 +153,9 @@ export default function App() {
       </header>
 
       <main className="flex flex-col gap-20 sm:gap-24 lg:gap-32">
-        <section className="relative flex min-h-[calc(100svh-8rem)] w-full items-center justify-center px-4 text-center sm:h-[90vh] sm:px-6">
+        <section className="relative flex min-h-[92svh] w-full items-start justify-center px-4 pb-12 pt-[50svh] text-center sm:h-[90vh] sm:items-center sm:px-6 sm:py-0">
           <video
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-x-0 top-0 h-[44svh] w-full bg-[#2f2a25] object-cover object-center sm:inset-0 sm:h-full"
             autoPlay
             muted
             loop
@@ -166,9 +166,9 @@ export default function App() {
             <source src={HERO_IMAGE_URL} type="video/mp4" />
           </video>
 
-          <div className="absolute inset-0 bg-[#2f2a25]/60" />
+          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#2f2a25]/60 sm:inset-0 sm:h-full" />
 
-          <div className="relative z-10 max-w-xl px-4 text-white sm:max-w-2xl sm:px-6">
+          <div className="relative z-10 max-w-xl px-2 text-white sm:max-w-2xl sm:px-6">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -244,9 +244,9 @@ export default function App() {
             Nosotros lo hacemos por ti
           </h2>
 
-          <div className="mx-auto mt-8 aspect-[4/5] w-full max-w-4xl overflow-hidden rounded-[2rem] shadow-lg sm:mt-10 sm:aspect-[16/10]">
+          <div className="mx-auto mt-8 aspect-square w-full max-w-4xl overflow-hidden rounded-[2rem] bg-[#efe4d7] shadow-lg sm:mt-10 sm:aspect-[16/10]">
             <video
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain object-center sm:object-cover"
               autoPlay
               muted
               loop
