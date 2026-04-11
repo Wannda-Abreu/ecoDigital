@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ecomercia</title>
+    <script>
+      (function redirectGithubPagesRoute() {
+        const basePath = "/ecoDigital";
+        const route = window.location.pathname.startsWith(basePath)
+          ? window.location.pathname.slice(basePath.length) || "/"
+          : window.location.pathname || "/";
+        const target = `${window.location.origin}${basePath}/?route=${encodeURIComponent(route)}${window.location.hash}`;
+
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

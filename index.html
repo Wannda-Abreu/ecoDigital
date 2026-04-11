@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="https://res.cloudinary.com/dsyfal3wa/image/upload/v1775755791/b35c18e0-823c-4e42-b7de-2631dbc14c15_hjnpbn.png" />
@@ -8,6 +8,22 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function restoreGithubPagesRoute() {
+        const params = new URLSearchParams(window.location.search);
+        const route = params.get("route");
+
+        if (!route) {
+          return;
+        }
+
+        const basePath = "/ecoDigital";
+        const nextPath = route === "/" ? "/" : route;
+        const nextUrl = `${basePath}${nextPath}${window.location.hash}`;
+
+        window.history.replaceState(null, "", nextUrl);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
