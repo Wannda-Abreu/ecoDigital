@@ -1,10 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  /* Dynamic viewport height for better mobile behavior */
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   --dvh: 1vh;
+  --bg: #f6f3ee;
+  --paper: #fffdf9;
+  --paper-deep: #efe8de;
+  --ink: #24211d;
+  --muted: #666057;
+  --sage: #2f5b53;
+  --sage-soft: #dee9e5;
+  --line: #d8d0c6;
+  --accent: #cf7650;
 }
 
 @supports (height: 100dvh) {
@@ -24,55 +32,120 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, rgba(14, 55, 132, 0.25), transparent 18%),
-    radial-gradient(circle at 15% 12%, rgba(168, 85, 247, 0.18), transparent 14%),
-    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.12), transparent 20%),
-    #020617;
-  color: #ffffff;
+  background:
+    radial-gradient(circle at top left, rgba(207, 118, 80, 0.16), transparent 24%),
+    radial-gradient(circle at 85% 12%, rgba(47, 91, 83, 0.08), transparent 20%),
+    linear-gradient(180deg, #faf7f2 0%, #f6f3ee 44%, #f1ece4 100%);
+  color: var(--ink);
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px;
+  background-image:
+    linear-gradient(rgba(92, 81, 69, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 81, 69, 0.03) 1px, transparent 1px);
+  background-size: 96px 96px;
   opacity: 0.22;
   pointer-events: none;
   z-index: 0;
 }
 
-.background-grid {
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35), transparent 20%),
+    radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.18), transparent 28%);
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.artisan-shell {
+  position: relative;
+}
+
+.artisan-shell::before {
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 16%),
-    radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.08), transparent 18%);
+  background:
+    radial-gradient(circle at top right, rgba(207, 118, 80, 0.14), transparent 18%),
+    radial-gradient(circle at bottom left, rgba(47, 91, 83, 0.08), transparent 20%);
+  opacity: 0.9;
 }
 
-.glass-card {
-  background: rgba(15, 23, 42, 0.64);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 40px 120px rgba(14, 51, 103, 0.24);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-radius: 32px;
+.artisan-panel {
+  background: rgba(255, 253, 249, 0.78);
+  border: 1px solid rgba(207, 197, 186, 0.76);
+  box-shadow: 0 18px 60px rgba(57, 46, 37, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #38bdf8, #8b5cf6, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+.artisan-card {
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(244, 239, 232, 0.92));
+  border: 1px solid rgba(216, 208, 198, 0.95);
+  box-shadow: 0 16px 40px rgba(70, 56, 44, 0.07);
 }
 
-.btn-glow {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 18px 45px rgba(56, 189, 248, 0.18);
+.artisan-outline {
+  border: 1px solid rgba(216, 208, 198, 0.95);
+  background: rgba(255, 253, 249, 0.72);
 }
 
-.btn-glow:hover {
-  background: rgba(255, 255, 255, 0.12);
+.artisan-eyebrow {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7d746a;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.artisan-button-primary {
+  background: linear-gradient(135deg, #cf7650, #a95a3f);
+  color: white;
+  box-shadow: 0 14px 30px rgba(207, 118, 80, 0.22);
+}
+
+.artisan-button-secondary {
+  background: rgba(255, 253, 249, 0.82);
+  color: var(--ink);
+  border: 1px solid rgba(216, 208, 198, 0.95);
+}
+
+.paper-cut {
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-cut::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -42% auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: rgba(207, 118, 80, 0.16);
+  filter: blur(4px);
+}
+
+.catalog-columns {
+  column-gap: 0.95rem;
+}
+
+@media (min-width: 640px) {
+  .catalog-columns {
+    column-gap: 1rem;
+  }
 }

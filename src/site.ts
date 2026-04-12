@@ -8,3 +8,6 @@ export const HERO_IMAGE_URL =
 
 export const SOLUTION_IMAGE_URL =
   "https://res.cloudinary.com/dsyfal3wa/video/upload/v1775765531/Untitled_1080_x_1080_px_ypsrkt.mp4"
+
+export const PRELOAD_VIDEO_URL =
+  "https://res.cloudinary.com/dsyfal3wa/video/upload/v1775987277/Bold_Italic_Multipurpse_Typography_Logo_Design_Brand_Identity_Clean_Comic_Style_for_Design_Company_5_ofjikk.mp4"

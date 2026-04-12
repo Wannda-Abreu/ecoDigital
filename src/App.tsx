@@ -3,9 +3,12 @@ import type { MouseEventHandler } from "react"
 import { CatalogPage } from "./CatalogPage"
 import { HomePage } from "./HomePage"
 import { buildAppHref, getCurrentAppRoute, type AppRoute } from "./routes"
+import { PRELOAD_VIDEO_URL } from "./site"
 
 export default function App() {
   const [route, setRoute] = useState<AppRoute>(() => getCurrentAppRoute())
+  const [showPreloader, setShowPreloader] = useState(true)
+  const [hidePreloader, setHidePreloader] = useState(false)
 
   useEffect(() => {
     const syncRoute = () => {
@@ -16,6 +19,21 @@ export default function App() {
 
     return () => {
       window.removeEventListener("popstate", syncRoute)
+    }
+  }, [])
+
+  useEffect(() => {
+    const hideTimer = window.setTimeout(() => {
+      setHidePreloader(true)
+    }, 2400)
+
+    const unmountTimer = window.setTimeout(() => {
+      setShowPreloader(false)
+    }, 2900)
+
+    return () => {
+      window.clearTimeout(hideTimer)
+      window.clearTimeout(unmountTimer)
     }
   }, [])
 
@@ -45,16 +63,66 @@ export default function App() {
     }
   }
 
+  const homeHref = buildAppHref("/")
   const catalogHref = buildAppHref("/catalogo")
 
   if (route === "/catalogo") {
-    return <CatalogPage />
+    return (
+      <>
+        {showPreloader ? (
+          <div
+            className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#f5f1e8] transition-opacity duration-500 ${
+              hidePreloader ? "pointer-events-none opacity-0" : "opacity-100"
+            }`}
+          >
+            <div className="w-[180px] sm:w-[220px]">
+              <video
+                className="h-auto w-full rounded-[1.5rem] object-contain"
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+              >
+                <source src={PRELOAD_VIDEO_URL} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        ) : null}
+        <CatalogPage
+          homeHref={homeHref}
+          onNavigateHome={createRouteHandler("/")}
+        />
+      </>
+    )
   }
 
   return (
-    <HomePage
-      catalogHref={catalogHref}
-      onNavigateCatalog={createRouteHandler("/catalogo")}
-    />
+    <>
+      {showPreloader ? (
+        <div
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#f5f1e8] transition-opacity duration-500 ${
+            hidePreloader ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
+        >
+          <div className="w-[180px] sm:w-[220px]">
+            <video
+              className="h-auto w-full rounded-[1.5rem] object-contain"
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            >
+              <source src={PRELOAD_VIDEO_URL} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      ) : null}
+      <HomePage
+        catalogHref={catalogHref}
+        onNavigateCatalog={createRouteHandler("/catalogo")}
+      />
+    </>
   )
 }

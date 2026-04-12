@@ -31,18 +31,22 @@ const services = [
 const benefits = [
   {
     title: "Mas clientes y recomendaciones",
+    detail: "Una presencia que convierte la confianza artesanal en ventas reales.",
     icon: Users,
   },
   {
     title: "Presencia online profesional",
+    detail: "Imagen, tono y estructura alineados con el valor de tus piezas.",
     icon: BadgeCheck,
   },
   {
     title: "Ahorro de tiempo",
+    detail: "Procesos mas claros para publicar, responder y vender con calma.",
     icon: Clock3,
   },
   {
     title: "Estrategia clara para crecer",
+    detail: "Una ruta simple para pasar de presencia digital a crecimiento sostenible.",
     icon: TrendingUp,
   },
 ]
@@ -50,19 +54,19 @@ const benefits = [
 const metrics = [
   {
     value: "24/7",
-    label: "Presencia digital activa",
+    label: "Visibilidad constante",
   },
   {
     value: "3",
-    label: "Bloques clave para crecer",
+    label: "Bloques de crecimiento",
   },
   {
     value: "1",
-    label: "Estrategia clara para avanzar",
+    label: "Sistema coherente",
   },
   {
     value: "100%",
-    label: "Adaptado a tu esencia",
+    label: "Hecho a tu medida",
   },
 ]
 
@@ -92,13 +96,9 @@ const fadeUp = {
 const staggerContainer = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 }
-
-const heroHeadingTransition = { duration: 0.8 }
-const heroBodyTransition = { delay: 0.2 }
-const heroCtaTransition = { delay: 0.4 }
 
 type HomePageProps = {
   catalogHref: string
@@ -116,7 +116,7 @@ export function HomePage({
 
     const updateScrolled = () => {
       frameId = 0
-      const nextScrolled = window.scrollY > 50
+      const nextScrolled = window.scrollY > 30
       setScrolled((currentScrolled) =>
         currentScrolled === nextScrolled ? currentScrolled : nextScrolled,
       )
@@ -143,26 +143,31 @@ export function HomePage({
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#f5f1e8] text-[#2f2a25] antialiased">
+    <div className="artisan-shell min-h-screen text-[#2f2a25] antialiased">
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#f5f1e8]/70 backdrop-blur-md shadow-sm"
+            ? "border-b border-white/18 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.08))] shadow-[0_10px_30px_rgba(79,58,42,0.08)] backdrop-blur-2xl"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-4">
-          <img
-            src={LOGO_URL}
-            alt="Ecomercia"
-            className="w-32 sm:w-36"
-            decoding="async"
-          />
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="flex items-center gap-4">
+            <img
+              src={LOGO_URL}
+              alt="Ecomercia"
+              className="w-32 sm:w-36"
+              decoding="async"
+            />
+            <span className="hidden rounded-full border border-[#d8d0c6] bg-[#fffdf9]/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#7d746a] lg:inline-flex">
+              Digital con alma artesanal
+            </span>
+          </div>
 
           <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:w-auto sm:flex-nowrap">
             <a
               href="#servicios"
-              className="rounded-full border border-[#d9cbb9] bg-white/70 px-4 py-2 text-xs text-[#2f2a25] transition hover:scale-105 sm:px-5 sm:text-sm"
+              className="artisan-button-secondary rounded-full px-4 py-2 text-xs transition hover:-translate-y-0.5 sm:px-5 sm:text-sm"
             >
               Servicios
             </a>
@@ -170,14 +175,14 @@ export function HomePage({
             <a
               href={catalogHref}
               onClick={onNavigateCatalog}
-              className="rounded-full border border-[#d9cbb9] bg-white/70 px-4 py-2 text-xs text-[#2f2a25] transition hover:scale-105 sm:px-5 sm:text-sm"
+              className="artisan-button-secondary rounded-full px-4 py-2 text-xs transition hover:-translate-y-0.5 sm:px-5 sm:text-sm"
             >
               Catalogo
             </a>
 
             <a
               href={WHATSAPP_URL}
-              className="rounded-full bg-[#3F6B5B] px-4 py-2 text-xs text-white transition hover:scale-105 sm:px-5 sm:text-sm"
+              className="artisan-button-primary rounded-full px-4 py-2 text-xs transition hover:-translate-y-0.5 sm:px-5 sm:text-sm"
             >
               Hablar ahora
             </a>
@@ -185,8 +190,8 @@ export function HomePage({
         </div>
       </header>
 
-      <main className="flex flex-col gap-20 sm:gap-24 lg:gap-32">
-        <section className="relative flex min-h-[92svh] w-full items-start justify-center px-4 pb-12 pt-[50svh] text-center sm:h-[90vh] sm:items-center sm:px-6 sm:py-0">
+      <main className="flex flex-col gap-20 pb-16 sm:gap-24 lg:gap-32">
+        <section className="relative flex min-h-[92svh] w-full items-start justify-center px-4 pb-12 pt-[50svh] sm:min-h-[88svh] sm:items-center sm:px-6 sm:py-0">
           <video
             className="absolute inset-x-0 top-0 h-[44svh] w-full bg-[#2f2a25] object-cover object-center sm:inset-0 sm:h-full"
             autoPlay
@@ -199,49 +204,59 @@ export function HomePage({
             <source src={HERO_IMAGE_URL} type="video/mp4" />
           </video>
 
-          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#2f2a25]/72 sm:inset-0 sm:h-full sm:bg-[#2f2a25]/60" />
+          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#1f1a17]/56 sm:inset-0 sm:h-full sm:bg-[#1f1a17]/38" />
+          <div className="absolute inset-x-0 top-0 h-[44svh] bg-gradient-to-b from-[#f7f1e9]/6 via-transparent to-transparent sm:inset-0 sm:h-full" />
 
-          <div className="relative z-10 max-w-xl rounded-[1.75rem] bg-[#201b18]/30 px-4 py-5 text-white backdrop-blur-[2px] sm:max-w-2xl sm:bg-transparent sm:px-6 sm:py-0 sm:backdrop-blur-0">
+          <div className="relative z-10 max-w-xl rounded-[2rem] border border-white/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] px-5 py-6 text-center text-white shadow-[0_24px_60px_rgba(16,12,10,0.08)] backdrop-blur-xl sm:max-w-3xl sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+            <div className="mx-auto flex w-fit items-center gap-2 rounded-full border border-white/22 bg-white/8 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#fff3e6]">
+              <span className="h-2 w-2 rounded-full bg-[#cf7650]" />
+              Presencia digital profesional
+            </div>
+
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={heroHeadingTransition}
-              className="text-[2.15rem] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl sm:tracking-tight md:text-5xl"
+              transition={{ duration: 0.8 }}
+              className="mt-6 text-[2.3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-[#fffaf4] drop-shadow-[0_10px_35px_rgba(0,0,0,0.18)] sm:text-5xl md:text-[3.8rem]"
             >
-              Vende online sin dejar de ser tu
+              Vende online con una imagen profesional y fiel a tu esencia.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={heroBodyTransition}
-              className="mt-4 text-sm font-medium leading-7 text-[#f5eee4] sm:mt-6 sm:text-base"
+              transition={{ delay: 0.2 }}
+              className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-7 text-[#fff0de] drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] sm:mt-6 sm:text-base sm:leading-8"
             >
-              Digitalizamos tu negocio artesanal para que consigas mas clientes
-              sin perder tu esencia.
+              Diseñamos una presencia digital clara, cuidada y contemporánea
+              para que tu marca artesanal transmita valor desde el primer vistazo.
             </motion.p>
 
-            <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center">
+            <div className="mt-7 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center">
               <motion.a
                 href="#problema"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={heroCtaTransition}
-                className="inline-block w-full rounded-full bg-white px-6 py-3 text-[#2f2a25] transition hover:scale-105 sm:w-auto sm:px-8"
+                transition={{ delay: 0.4 }}
+              className="inline-flex w-full items-center justify-center rounded-full bg-[#fff1e7] px-6 py-3 text-[#24211d] shadow-[0_16px_35px_rgba(27,21,17,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#cf7650] hover:text-white sm:w-auto sm:px-8"
               >
-                Quiero empezar
+                Descubrir como
               </motion.a>
 
               <motion.a
                 href={WHATSAPP_URL}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ ...heroCtaTransition, delay: 0.5 }}
-                className="inline-block w-full rounded-full border border-white/50 bg-white/10 px-6 py-3 text-white transition hover:scale-105 sm:w-auto sm:px-8"
+                transition={{ delay: 0.5 }}
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/4 px-6 py-3 text-[#fffaf4] shadow-[0_16px_35px_rgba(22,18,16,0.12)] transition duration-300 hover:-translate-y-0.5 hover:border-[#f2ddd0] hover:bg-[#cf7650] hover:text-white sm:w-auto sm:px-8"
               >
                 Hablar ahora
               </motion.a>
             </div>
+
+            <p className="mt-5 text-xs uppercase tracking-[0.24em] text-[#f4e4d4] sm:text-[11px]">
+              Para talleres, estudios y marcas artesanales que quieren crecer con coherencia
+            </p>
           </div>
         </section>
 
@@ -252,28 +267,35 @@ export function HomePage({
           whileInView="show"
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-4xl scroll-mt-32 px-4 text-center sm:scroll-mt-28 sm:px-6"
+          className="mx-auto max-w-5xl scroll-mt-28 px-4 sm:px-6"
         >
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Sabemos lo que te esta pasando
-          </h2>
+          <div className="artisan-card rounded-[2.2rem] p-6 sm:p-8 lg:p-10">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="artisan-eyebrow">El punto de partida</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Sabemos lo que te esta frenando.
+              </h2>
+            </div>
 
-          <div className="mt-6 rounded-[2rem] border border-[#d6c6b1] bg-[#fffdf9] px-5 py-6 shadow-sm sm:mt-8 sm:px-6 sm:py-8">
-            <p className="mx-auto max-w-2xl text-left text-[1.05rem] font-semibold leading-8 text-[#16241d] sm:text-center sm:text-lg sm:leading-8">
-              Tienes un negocio con valor, pero no sabes como vender online,
-              no tienes tiempo para redes o tu web no genera ventas.
-            </p>
-
-            <div className="mt-6 grid gap-3 text-sm text-[#16241d] sm:mt-6 sm:flex sm:flex-wrap sm:justify-center">
-              <span className="rounded-2xl border border-[#d8c8b4] bg-[#f7efe4] px-4 py-3 text-left font-semibold text-[#16241d] sm:rounded-full sm:px-4 sm:py-2">
-                Vender online
-              </span>
-              <span className="rounded-2xl border border-[#d8c8b4] bg-[#f7efe4] px-4 py-3 text-left font-semibold text-[#16241d] sm:rounded-full sm:px-4 sm:py-2">
-                Falta de tiempo
-              </span>
-              <span className="rounded-2xl border border-[#d8c8b4] bg-[#f7efe4] px-4 py-3 text-left font-semibold text-[#16241d] sm:rounded-full sm:px-4 sm:py-2">
-                Web sin resultados
-              </span>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              <div className="artisan-outline rounded-[1.6rem] p-5">
+                <p className="text-lg font-semibold">Vender online</p>
+                <p className="mt-2 text-sm leading-7 text-[#6d6257]">
+                  Tienes producto y valor, pero no un sistema claro para mostrarlo.
+                </p>
+              </div>
+              <div className="artisan-outline rounded-[1.6rem] p-5">
+                <p className="text-lg font-semibold">Falta de tiempo</p>
+                <p className="mt-2 text-sm leading-7 text-[#6d6257]">
+                  La gestion diaria no deja espacio para construir una presencia fuerte.
+                </p>
+              </div>
+              <div className="artisan-outline rounded-[1.6rem] p-5">
+                <p className="text-lg font-semibold">Web sin resultados</p>
+                <p className="mt-2 text-sm leading-7 text-[#6d6257]">
+                  La imagen existe, pero aun no acompana bien la venta.
+                </p>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -283,15 +305,22 @@ export function HomePage({
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="px-4 text-center sm:px-6"
+          className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center"
         >
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Nosotros lo hacemos por ti
-          </h2>
+          <div>
+            <p className="artisan-eyebrow">Lo hacemos por ti</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">
+              Una experiencia digital que parece taller, pero funciona como marca.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-8 text-[#5c5145]">
+              Organizamos imagen, narrativa y venta para que tu proyecto se vea
+              artesanal, si, pero tambien claro, deseable y actual.
+            </p>
+          </div>
 
-          <div className="mx-auto mt-8 aspect-square w-full max-w-4xl overflow-hidden rounded-[2rem] bg-[#efe4d7] shadow-lg sm:mt-10 sm:aspect-[16/10]">
+          <div className="relative overflow-hidden rounded-[2.4rem] border border-[#d8d0c6] bg-[#efe8de] shadow-[0_25px_80px_rgba(86,67,51,0.1)]">
             <video
-              className="h-full w-full object-contain object-center sm:object-cover"
+              className="h-full w-full object-cover"
               autoPlay
               muted
               loop
@@ -302,38 +331,42 @@ export function HomePage({
               <source src={SOLUTION_IMAGE_URL} type="video/mp4" />
             </video>
           </div>
-
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#5c5145] sm:text-base">
-            Creamos tu presencia digital completa adaptada a tu esencia
-            artesanal.
-          </p>
         </motion.section>
 
         <section
           id="servicios"
-          className="mx-auto max-w-6xl scroll-mt-32 px-4 text-center sm:scroll-mt-28 sm:px-6"
+          className="mx-auto max-w-7xl scroll-mt-28 px-4 sm:px-6"
         >
-          <h2 className="mb-8 text-3xl font-semibold tracking-tight sm:mb-12 sm:text-4xl">
-            Como te ayudamos
-          </h2>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="artisan-eyebrow">Servicios</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Te ayudamos a digitalizar sin perder la vibra artesanal.
+            </h2>
+          </div>
 
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid gap-5 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-8"
+            className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3"
           >
             {services.map(({ title, icon: Icon }) => (
-              <motion.div
+              <motion.article
                 key={title}
                 variants={fadeUp}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="rounded-2xl bg-[#FFFAF3] p-5 shadow-sm transition-all hover:shadow-md sm:p-6"
+                whileHover={{ y: -8 }}
+                className="artisan-card rounded-[1.9rem] p-6"
               >
-                <Icon className="mb-4 text-[#3F6B5B]" />
-                <p className="font-medium">{title}</p>
-              </motion.div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f3dfd2] text-[#cf7650]">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <p className="mt-5 text-xl font-semibold tracking-tight">{title}</p>
+                <p className="mt-3 text-sm leading-7 text-[#6d6257]">
+                  Diseñado para mantener la coherencia entre lo que haces, lo
+                  que muestras y lo que finalmente vendes.
+                </p>
+              </motion.article>
             ))}
           </motion.div>
         </section>
@@ -343,32 +376,39 @@ export function HomePage({
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mx-auto max-w-4xl px-4 text-center sm:px-6"
+          className="mx-auto max-w-7xl px-4 sm:px-6"
         >
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Lo que vas a conseguir
-          </h2>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="artisan-eyebrow">Resultados</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Lo que vas a conseguir
+            </h2>
+          </div>
 
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="mt-8 grid gap-4 text-left sm:mt-10 sm:grid-cols-2 sm:gap-5"
+            className="mt-10 grid gap-5 lg:grid-cols-2"
           >
-            {benefits.map(({ title, icon: Icon }) => (
-              <motion.div
+            {benefits.map(({ title, detail, icon: Icon }) => (
+              <motion.article
                 key={title}
                 variants={fadeUp}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className="flex items-center gap-4 rounded-3xl border border-[#e8ddcf] bg-[#fffaf3] px-4 py-4 shadow-sm transition-all hover:shadow-md sm:px-5 sm:py-5"
+                whileHover={{ y: -6 }}
+                className="artisan-card rounded-[2rem] p-6"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#3F6B5B] text-white shadow-sm">
-                  <Icon className="h-5 w-5" />
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#cf7650] text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-semibold text-[#2f2a25]">{title}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#6d6257]">{detail}</p>
+                  </div>
                 </div>
-
-                <p className="text-base font-medium text-[#5c5145]">{title}</p>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
 
@@ -377,18 +417,18 @@ export function HomePage({
             whileInView="show"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4"
+            className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4"
           >
             {metrics.map(({ value, label }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
-                className="rounded-3xl border border-[#e8ddcf] bg-[#f9f2e9] px-4 py-5 shadow-sm sm:px-5 sm:py-6"
+                className="artisan-outline rounded-[1.8rem] px-5 py-6"
               >
-                <p className="text-2xl font-semibold tracking-tight text-[#3F6B5B] sm:text-3xl">
+                <p className="text-3xl font-semibold tracking-tight text-[#cf7650]">
                   {value}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-[#5c5145]">{label}</p>
+                <p className="mt-2 text-sm leading-6 text-[#6d6257]">{label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -397,14 +437,14 @@ export function HomePage({
             <a
               href={catalogHref}
               onClick={onNavigateCatalog}
-              className="inline-block w-full rounded-full bg-[#3F6B5B] px-8 py-3 text-center text-white transition hover:scale-105 sm:w-auto"
+              className="artisan-button-primary inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 text-center text-sm font-medium transition hover:-translate-y-0.5 sm:w-auto"
             >
               Ver catalogo
             </a>
 
             <a
               href="#artesanos"
-              className="inline-block w-full rounded-full border border-[#3F6B5B] px-8 py-3 text-center text-[#3F6B5B] transition hover:scale-105 sm:w-auto"
+              className="artisan-button-secondary inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 text-center text-sm font-medium transition hover:-translate-y-0.5 sm:w-auto"
             >
               Conoce a nuestros colaboradores
             </a>
@@ -417,18 +457,16 @@ export function HomePage({
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mx-auto max-w-6xl scroll-mt-32 px-4 sm:scroll-mt-28 sm:px-6"
+          className="mx-auto max-w-7xl scroll-mt-28 px-4 sm:px-6"
         >
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.28em] text-[#8b745f]">
-              Artesanos colaboradores
-            </p>
+            <p className="artisan-eyebrow">Artesanos colaboradores</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Historias, oficios y piezas hechas con tiempo.
+              Rostros, manos y piezas hechas a mano que dan profundidad a la marca.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#5c5145] sm:text-base">
-              Trabajamos con creadores que convierten materia, gesto y detalle
-              en colecciones con identidad propia.
+              No hablamos solo de producto. Hablamos de origen, gesto, proceso y
+              una forma particular de mirar lo cotidiano.
             </p>
           </div>
 
@@ -443,11 +481,16 @@ export function HomePage({
               <motion.article
                 key={name}
                 variants={fadeUp}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className="rounded-[2rem] border border-[#e4d8ca] bg-[#fffaf3] p-6 shadow-sm transition hover:shadow-md"
+                whileHover={{ y: -6 }}
+                className="artisan-card rounded-[2rem] p-6"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#efe4d7] text-lg font-semibold text-[#3F6B5B]">
-                  {name.charAt(0)}
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f3dfd2] text-lg font-semibold text-[#cf7650]">
+                    {name.charAt(0)}
+                  </div>
+                  <span className="rounded-full border border-[#ddd0c1] px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#8b745f]">
+                    Colabora
+                  </span>
                 </div>
                 <p className="mt-5 text-2xl font-semibold tracking-tight text-[#2f2a25]">
                   {name}
@@ -455,41 +498,46 @@ export function HomePage({
                 <p className="mt-2 text-sm font-medium uppercase tracking-[0.18em] text-[#8b745f]">
                   {craft}
                 </p>
-                <p className="mt-4 text-sm leading-7 text-[#5c5145]">
-                  {note}
-                </p>
+                <p className="mt-4 text-sm leading-7 text-[#5c5145]">{note}</p>
               </motion.article>
             ))}
           </motion.div>
         </motion.section>
 
-        <section className="px-4 py-16 text-center sm:px-6 sm:py-20">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Empieza hoy a vender online
-          </h2>
+        <section className="px-4 sm:px-6">
+          <div className="mx-auto max-w-6xl rounded-[2.4rem] border border-[#d8d0c6] bg-[#25211d] px-6 py-10 text-center text-white shadow-[0_25px_80px_rgba(47,42,37,0.16)] sm:px-10 sm:py-14">
+            <p className="artisan-eyebrow text-[#ddc2ae]">Siguiente paso</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Dale a tu marca artesanal una presencia que se sienta actual y viva.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-8 text-[#f0e4d8] sm:text-base">
+              Podemos convertir tu universo visual en una experiencia digital
+              coherente, deseable y lista para vender.
+            </p>
 
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={WHATSAPP_URL}
-              className="inline-block w-full rounded-full bg-[#3F6B5B] px-8 py-3 text-white transition hover:scale-105 sm:w-auto"
-            >
-              Hablar por WhatsApp
-            </a>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href={WHATSAPP_URL}
+                className="rounded-full bg-[#fff3e8] px-8 py-3.5 text-sm font-medium text-[#24211d] transition hover:-translate-y-0.5"
+              >
+                Hablar por WhatsApp
+              </a>
 
-            <a
-              href={catalogHref}
-              onClick={onNavigateCatalog}
-              className="inline-block w-full rounded-full border border-[#3F6B5B] px-8 py-3 text-[#3F6B5B] transition hover:scale-105 sm:w-auto"
-            >
-              Abrir catalogo
-            </a>
+              <a
+                href={catalogHref}
+                onClick={onNavigateCatalog}
+                className="rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-sm font-medium text-white transition hover:-translate-y-0.5"
+              >
+                Abrir catalogo
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
       <a
         href={WHATSAPP_URL}
-        className="fixed bottom-4 right-4 animate-bounce rounded-full bg-[#3F6B5B] px-4 py-2.5 text-sm text-white shadow-lg transition hover:scale-110 sm:bottom-6 sm:right-6 sm:px-5 sm:py-3 sm:text-base"
+        className="fixed bottom-4 right-4 rounded-full bg-[#cf7650] px-4 py-2.5 text-sm text-white shadow-[0_12px_30px_rgba(207,118,80,0.22)] transition hover:-translate-y-0.5 sm:bottom-6 sm:right-6 sm:px-5 sm:py-3 sm:text-base"
       >
         WhatsApp
       </a>

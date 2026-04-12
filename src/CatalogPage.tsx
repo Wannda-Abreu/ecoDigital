@@ -1,3 +1,4 @@
+import type { MouseEventHandler } from "react"
 import { WHATSAPP_URL } from "./site"
 
 const catalogMedia = [
@@ -62,15 +63,27 @@ const catalogMedia = [
     artisan: "Artesano colaborador",
   },
   {
+    type: "video",
+    src: "https://res.cloudinary.com/dsyfal3wa/video/upload/v1775944499/Untitled_1080_x_1080_px_4_h3nd7y.mp4",
+    piece: "Pieza 12",
+    artisan: "Artesano colaborador",
+  },
+  {
     type: "image",
-    src: "https://res.cloudinary.com/dsyfal3wa/image/upload/v1775944643/Untitled_1080_x_1080_px_urkkpb.png",
-    piece: "Pieza 11",
+    src: "https://res.cloudinary.com/dsyfal3wa/image/upload/v1776026855/Untitled_1080_x_1080_px_gcubbj.svg",
+    piece: "Pieza 13",
     artisan: "Artesano colaborador",
   },
   {
     type: "video",
-    src: "https://res.cloudinary.com/dsyfal3wa/video/upload/v1775944499/Untitled_1080_x_1080_px_4_h3nd7y.mp4",
-    piece: "Pieza 12",
+    src: "https://res.cloudinary.com/dsyfal3wa/video/upload/v1776026860/Untitled_1080_x_1080_px_7_hwnvad.mp4",
+    piece: "Pieza 14",
+    artisan: "Artesano colaborador",
+  },
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/dsyfal3wa/video/upload/v1776026875/Untitled_1080_x_1080_px_8_s2umaj.mp4",
+    piece: "Pieza 15",
     artisan: "Artesano colaborador",
   },
 ] as const
@@ -80,25 +93,43 @@ function buildStoreHref(piece: string) {
   return `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`
 }
 
-export function CatalogPage() {
+type CatalogPageProps = {
+  homeHref: string
+  onNavigateHome: MouseEventHandler<HTMLAnchorElement>
+}
+
+export function CatalogPage({
+  homeHref,
+  onNavigateHome,
+}: CatalogPageProps) {
   return (
-    <div className="min-h-screen bg-[#f5f1e8] px-3 py-8 sm:px-4 sm:py-10">
+    <div className="min-h-screen bg-[#f6f3ee] px-3 py-8 sm:px-4 sm:py-10">
       <section className="mx-auto mb-10 max-w-4xl px-2 text-center">
-        <div className="mx-auto mb-6 flex w-fit items-center gap-3 rounded-full border border-[#e2d4c4] bg-[#fffaf3] px-4 py-2 shadow-[0_10px_30px_rgba(71,53,37,0.05)]">
+        <div className="mb-6 flex justify-center">
+          <a
+            href={homeHref}
+            onClick={onNavigateHome}
+            className="rounded-full border border-[#d8d0c6] bg-[#fffdf9] px-5 py-2.5 text-sm font-medium text-[#24211d] transition hover:-translate-y-0.5 hover:border-[#c97854] hover:text-[#c97854]"
+          >
+            Volver a la pagina principal
+          </a>
+        </div>
+
+        <div className="mx-auto mb-6 flex w-fit items-center gap-3 rounded-full border border-[#d8d0c6] bg-[#fffdf9] px-4 py-2 shadow-[0_10px_30px_rgba(71,53,37,0.04)]">
           <span className="text-lg">o</span>
-          <span className="h-2 w-2 rounded-full bg-[#d4b391]" />
+          <span className="h-2 w-2 rounded-full bg-[#c97854]" />
           <span className="text-lg">*</span>
-          <span className="h-2 w-2 rounded-full bg-[#b98f74]" />
+          <span className="h-2 w-2 rounded-full bg-[#2f5b53]" />
           <span className="text-lg">+</span>
         </div>
 
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#8b745f]">
+        <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#7d746a]">
           Piezas destacadas
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#2f2a25] sm:text-5xl">
+        <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#24211d] sm:text-5xl">
           Seleccion de pizas unicas.
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#5c5145] sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#666057] sm:text-base">
           Artesania colectiva: distintas manos, una sola historia.
         </p>
       </section>
@@ -107,7 +138,7 @@ export function CatalogPage() {
         {catalogMedia.map((item, index) => (
           <figure
             key={item.src}
-            className="group mb-3 break-inside-avoid overflow-hidden rounded-[1.5rem] bg-[#efe5d8] shadow-[0_10px_30px_rgba(71,53,37,0.06)] transition duration-300 hover:-translate-y-1"
+            className="group mb-3 break-inside-avoid overflow-hidden rounded-[1.5rem] bg-[#efe8de] shadow-[0_10px_30px_rgba(71,53,37,0.05)] transition duration-300 hover:-translate-y-1"
           >
             {item.type === "video" ? (
               <video
@@ -132,17 +163,17 @@ export function CatalogPage() {
 
             <div className="flex items-center justify-between gap-3 px-4 py-4">
               <div className="min-w-0">
-                <p className="truncate text-sm font-medium text-[#2f2a25]">
+                <p className="truncate text-sm font-medium text-[#24211d]">
                   {item.piece}
                 </p>
-                <p className="truncate text-xs uppercase tracking-[0.18em] text-[#8b745f]">
+                <p className="truncate text-xs uppercase tracking-[0.18em] text-[#7d746a]">
                   {item.artisan}
                 </p>
               </div>
 
               <a
                 href={buildStoreHref(item.piece)}
-                className="shrink-0 rounded-full border border-[#d8c8b7] bg-[#fffaf3] px-3 py-2 text-xs font-medium text-[#3F6B5B] transition hover:bg-white"
+                className="shrink-0 rounded-full border border-[#d8d0c6] bg-[#fffdf9] px-3 py-2 text-xs font-medium text-[#2f5b53] transition hover:border-[#c97854] hover:bg-white hover:text-[#c97854]"
               >
                 Tienda del artesano
               </a>
