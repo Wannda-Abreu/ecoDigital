@@ -66,6 +66,24 @@ const metrics = [
   },
 ]
 
+const collaborators = [
+  {
+    name: "Lucia",
+    craft: "Ceramica organica",
+    note: "Piezas serenas para mesas, rincones y rituales cotidianos.",
+  },
+  {
+    name: "Marta",
+    craft: "Textiles de autor",
+    note: "Tejidos suaves y tonos tierra pensados para hogares con calma.",
+  },
+  {
+    name: "Ines",
+    craft: "Objetos decorativos",
+    note: "Series cortas con textura, materia y una presencia muy editorial.",
+  },
+]
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0 },
@@ -215,14 +233,13 @@ export function HomePage({
               </motion.a>
 
               <motion.a
-                href={catalogHref}
-                onClick={onNavigateCatalog}
+                href={WHATSAPP_URL}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ ...heroCtaTransition, delay: 0.5 }}
                 className="inline-block w-full rounded-full border border-white/50 bg-white/10 px-6 py-3 text-white transition hover:scale-105 sm:w-auto sm:px-8"
               >
-                Ver catalogo
+                Hablar ahora
               </motion.a>
             </div>
           </div>
@@ -373,6 +390,75 @@ export function HomePage({
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#5c5145]">{label}</p>
               </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={catalogHref}
+              onClick={onNavigateCatalog}
+              className="inline-block w-full rounded-full bg-[#3F6B5B] px-8 py-3 text-center text-white transition hover:scale-105 sm:w-auto"
+            >
+              Ver catalogo
+            </a>
+
+            <a
+              href="#artesanos"
+              className="inline-block w-full rounded-full border border-[#3F6B5B] px-8 py-3 text-center text-[#3F6B5B] transition hover:scale-105 sm:w-auto"
+            >
+              Conoce a nuestros colaboradores
+            </a>
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="artesanos"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mx-auto max-w-6xl scroll-mt-32 px-4 sm:scroll-mt-28 sm:px-6"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.28em] text-[#8b745f]">
+              Artesanos colaboradores
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Historias, oficios y piezas hechas con tiempo.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#5c5145] sm:text-base">
+              Trabajamos con creadores que convierten materia, gesto y detalle
+              en colecciones con identidad propia.
+            </p>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mt-10 grid gap-5 md:grid-cols-3"
+          >
+            {collaborators.map(({ name, craft, note }) => (
+              <motion.article
+                key={name}
+                variants={fadeUp}
+                whileHover={{ y: -6, scale: 1.01 }}
+                className="rounded-[2rem] border border-[#e4d8ca] bg-[#fffaf3] p-6 shadow-sm transition hover:shadow-md"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#efe4d7] text-lg font-semibold text-[#3F6B5B]">
+                  {name.charAt(0)}
+                </div>
+                <p className="mt-5 text-2xl font-semibold tracking-tight text-[#2f2a25]">
+                  {name}
+                </p>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.18em] text-[#8b745f]">
+                  {craft}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[#5c5145]">
+                  {note}
+                </p>
+              </motion.article>
             ))}
           </motion.div>
         </motion.section>

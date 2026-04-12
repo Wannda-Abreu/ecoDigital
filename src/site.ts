@@ -1,4 +1,4 @@
-export const WHATSAPP_URL = "https://wa.me/346XXXXXXXX"
+export const WHATSAPP_URL = "https://wa.me/34656501271"
 
 export const LOGO_URL =
   "https://res.cloudinary.com/dsyfal3wa/image/upload/v1775741260/b35c18e0-823c-4e42-b7de-2631dbc14c15_gjqw7h.png"
