@@ -15,6 +15,7 @@ import {
 import {
   HERO_IMAGE_URL,
   LOGO_URL,
+  RESULTS_BACKGROUND_URL,
   SOLUTION_IMAGE_URL,
   WHATSAPP_URL,
 } from "./site"
@@ -52,22 +53,10 @@ const benefits = [
 ]
 
 const metrics = [
-  {
-    value: "24/7",
-    label: "Visibilidad constante",
-  },
-  {
-    value: "3",
-    label: "Bloques de crecimiento",
-  },
-  {
-    value: "1",
-    label: "Sistema coherente",
-  },
-  {
-    value: "100%",
-    label: "Hecho a tu medida",
-  },
+  { value: "24/7", label: "Visibilidad constante" },
+  { value: "3", label: "Bloques de crecimiento" },
+  { value: "1", label: "Sistema coherente" },
+  { value: "100%", label: "Hecho a tu medida" },
 ]
 
 const collaborators = [
@@ -192,22 +181,19 @@ export function HomePage({
 
       <main className="flex flex-col gap-20 pb-16 sm:gap-24 lg:gap-32">
         <section className="relative flex min-h-[92svh] w-full items-start justify-center px-4 pb-12 pt-[50svh] sm:min-h-[88svh] sm:items-center sm:px-6 sm:py-0">
-          <video
+          <img
+            src={HERO_IMAGE_URL}
+            alt=""
             className="absolute inset-x-0 top-0 h-[44svh] w-full bg-[#2f2a25] object-cover object-center sm:inset-0 sm:h-full"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
+            loading="eager"
+            decoding="async"
             aria-hidden="true"
-          >
-            <source src={HERO_IMAGE_URL} type="video/mp4" />
-          </video>
+          />
 
-          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#1f1a17]/56 sm:inset-0 sm:h-full sm:bg-[#1f1a17]/38" />
-          <div className="absolute inset-x-0 top-0 h-[44svh] bg-gradient-to-b from-[#f7f1e9]/6 via-transparent to-transparent sm:inset-0 sm:h-full" />
+          <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#1f1a17]/46 sm:inset-0 sm:h-full sm:bg-[#1f1a17]/28" />
+          <div className="absolute inset-x-0 top-0 h-[44svh] bg-gradient-to-b from-[#f7f1e9]/4 via-transparent to-transparent sm:inset-0 sm:h-full" />
 
-          <div className="relative z-10 max-w-xl rounded-[2rem] border border-white/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] px-5 py-6 text-center text-white shadow-[0_24px_60px_rgba(16,12,10,0.08)] backdrop-blur-xl sm:max-w-3xl sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+          <div className="relative z-10 max-w-xl rounded-[2rem] border border-white/16 bg-[linear-gradient(180deg,rgba(33,28,24,0.34),rgba(33,28,24,0.22)_62%,rgba(207,118,80,0.16)_100%)] px-5 py-6 text-center text-white shadow-[0_24px_60px_rgba(16,12,10,0.12)] backdrop-blur-[4px] sm:max-w-3xl sm:px-8 sm:py-8 lg:px-10 lg:py-10">
             <div className="mx-auto flex w-fit items-center gap-2 rounded-full border border-white/22 bg-white/8 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#fff3e6]">
               <span className="h-2 w-2 rounded-full bg-[#cf7650]" />
               Presencia digital profesional
@@ -219,7 +205,7 @@ export function HomePage({
               transition={{ duration: 0.8 }}
               className="mt-6 text-[2.3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-[#fffaf4] drop-shadow-[0_10px_35px_rgba(0,0,0,0.18)] sm:text-5xl md:text-[3.8rem]"
             >
-              Vende online con una imagen profesional y fiel a tu esencia.
+              Vende online sin perder tu esencia.
             </motion.h1>
 
             <motion.p
@@ -228,8 +214,8 @@ export function HomePage({
               transition={{ delay: 0.2 }}
               className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-7 text-[#fff0de] drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] sm:mt-6 sm:text-base sm:leading-8"
             >
-              Diseñamos una presencia digital clara, cuidada y contemporánea
-              para que tu marca artesanal transmita valor desde el primer vistazo.
+              Diseñamos una presencia digital clara y contemporanea para que tu
+              marca artesanal transmita valor desde el primer vistazo.
             </motion.p>
 
             <div className="mt-7 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center">
@@ -238,9 +224,9 @@ export function HomePage({
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 }}
-              className="inline-flex w-full items-center justify-center rounded-full bg-[#fff1e7] px-6 py-3 text-[#24211d] shadow-[0_16px_35px_rgba(27,21,17,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#cf7650] hover:text-white sm:w-auto sm:px-8"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#fff1e7] px-6 py-3 text-[#24211d] shadow-[0_16px_35px_rgba(27,21,17,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#cf7650] hover:text-white sm:w-auto sm:px-8"
               >
-                Descubrir como
+                Explorar
               </motion.a>
 
               <motion.a
@@ -252,6 +238,18 @@ export function HomePage({
               >
                 Hablar ahora
               </motion.a>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[#f6e7d7] sm:gap-3">
+              <span className="rounded-full border border-white/18 bg-white/7 px-3 py-1.5">
+                Catalogo visual
+              </span>
+              <span className="rounded-full border border-white/18 bg-white/7 px-3 py-1.5">
+                CTA directos
+              </span>
+              <span className="rounded-full border border-white/18 bg-white/7 px-3 py-1.5">
+                Marca coherente
+              </span>
             </div>
 
             <p className="mt-5 text-xs uppercase tracking-[0.24em] text-[#f4e4d4] sm:text-[11px]">
@@ -378,76 +376,91 @@ export function HomePage({
           viewport={{ once: true }}
           className="mx-auto max-w-7xl px-4 sm:px-6"
         >
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="artisan-eyebrow">Resultados</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Lo que vas a conseguir
-            </h2>
-          </div>
+          <div className="relative overflow-hidden rounded-[2.6rem] border border-[#d8d0c6] px-4 py-10 shadow-[0_25px_80px_rgba(57,46,37,0.08)] sm:px-8 sm:py-12">
+            <img
+              src={RESULTS_BACKGROUND_URL}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,243,238,0.66),rgba(246,243,238,0.56))]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(207,118,80,0.10),transparent_22%)]" />
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mt-10 grid gap-5 lg:grid-cols-2"
-          >
-            {benefits.map(({ title, detail, icon: Icon }) => (
-              <motion.article
-                key={title}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                className="artisan-card rounded-[2rem] p-6"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#cf7650] text-white">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold text-[#2f2a25]">{title}</p>
-                    <p className="mt-2 text-sm leading-7 text-[#6d6257]">{detail}</p>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
+            <div className="relative">
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="artisan-eyebrow">Resultados</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  Lo que vas a conseguir
+                </h2>
+              </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4"
-          >
-            {metrics.map(({ value, label }) => (
               <motion.div
-                key={label}
-                variants={fadeUp}
-                className="artisan-outline rounded-[1.8rem] px-5 py-6"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="mt-10 grid gap-5 lg:grid-cols-2"
               >
-                <p className="text-3xl font-semibold tracking-tight text-[#cf7650]">
-                  {value}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[#6d6257]">{label}</p>
+                {benefits.map(({ title, detail, icon: Icon }) => (
+                  <motion.article
+                    key={title}
+                    variants={fadeUp}
+                    whileHover={{ y: -6 }}
+                    className="rounded-[2rem] border border-white/26 bg-[linear-gradient(180deg,rgba(255,255,255,0.32),rgba(255,255,255,0.18))] p-6 shadow-[0_18px_40px_rgba(57,46,37,0.10)] backdrop-blur-[6px]"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#cf7650] text-white">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-lg font-semibold text-[#2f2a25]">{title}</p>
+                        <p className="mt-2 text-sm leading-7 text-[#6d6257]">{detail}</p>
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={catalogHref}
-              onClick={onNavigateCatalog}
-              className="artisan-button-primary inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 text-center text-sm font-medium transition hover:-translate-y-0.5 sm:w-auto"
-            >
-              Ver catalogo
-            </a>
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4"
+              >
+                {metrics.map(({ value, label }) => (
+                  <motion.div
+                    key={label}
+                    variants={fadeUp}
+                    className="rounded-[1.8rem] border border-white/24 bg-[linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0.16))] px-5 py-6 shadow-[0_14px_30px_rgba(57,46,37,0.08)] backdrop-blur-[5px]"
+                  >
+                    <p className="text-3xl font-semibold tracking-tight text-[#cf7650]">
+                      {value}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-[#6d6257]">{label}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
 
-            <a
-              href="#artesanos"
-              className="artisan-button-secondary inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 text-center text-sm font-medium transition hover:-translate-y-0.5 sm:w-auto"
-            >
-              Conoce a nuestros colaboradores
-            </a>
+              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <a
+                  href={catalogHref}
+                  onClick={onNavigateCatalog}
+                  className="artisan-button-primary inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 text-center text-sm font-medium transition hover:-translate-y-0.5 sm:w-auto"
+                >
+                  Ver catalogo
+                </a>
+
+                <a
+                  href="#artesanos"
+                  className="artisan-button-secondary inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 text-center text-sm font-medium transition hover:-translate-y-0.5 sm:w-auto"
+                >
+                  Conoce a nuestros colaboradores
+                </a>
+              </div>
+            </div>
           </div>
         </motion.section>
 
