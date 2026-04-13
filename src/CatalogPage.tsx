@@ -1,6 +1,17 @@
 import type { MouseEventHandler } from "react"
 import { WHATSAPP_URL } from "./site"
 
+const CLOUDINARY_UPLOAD_SEGMENT = "/image/upload/"
+
+function getOptimizedCatalogImage(src: string, width: number) {
+  if (!src.includes(CLOUDINARY_UPLOAD_SEGMENT)) {
+    return src
+  }
+
+  const [prefix, suffix] = src.split(CLOUDINARY_UPLOAD_SEGMENT)
+  return `${prefix}${CLOUDINARY_UPLOAD_SEGMENT}f_auto,q_auto:eco,c_limit,w_${width}/${suffix}`
+}
+
 const catalogMedia = [
   {
     type: "image",
@@ -169,10 +180,15 @@ export function CatalogPage({
                 </video>
               ) : (
                 <img
-                  src={item.src}
+                  src={getOptimizedCatalogImage(item.src, 960)}
+                  srcSet={`${getOptimizedCatalogImage(item.src, 480)} 480w, ${getOptimizedCatalogImage(item.src, 960)} 960w, ${getOptimizedCatalogImage(item.src, 1280)} 1280w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   alt={`${item.piece} ${index + 1}`}
                   className="h-auto w-full object-cover transition duration-300 group-hover:scale-[1.015]"
                   loading="lazy"
+                  decoding="async"
+                  width={1080}
+                  height={1080}
                 />
               )}
 

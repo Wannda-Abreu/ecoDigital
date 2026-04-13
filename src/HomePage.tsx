@@ -147,6 +147,8 @@ export function HomePage({
               alt="Ecomercia"
               className="w-32 sm:w-36"
               decoding="async"
+              width={320}
+              height={90}
             />
             <span className="hidden rounded-full border border-[#d8d0c6] bg-[#fffdf9]/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#7d746a] lg:inline-flex">
               Digital con alma artesanal
@@ -186,7 +188,11 @@ export function HomePage({
             alt=""
             className="absolute inset-x-0 top-0 h-[44svh] w-full bg-[#2f2a25] object-cover object-center sm:inset-0 sm:h-full"
             loading="eager"
+            fetchPriority="high"
             decoding="async"
+            width={1920}
+            height={1080}
+            sizes="100vw"
             aria-hidden="true"
           />
 
@@ -383,6 +389,9 @@ export function HomePage({
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               decoding="async"
+              width={1600}
+              height={1000}
+              sizes="(max-width: 1024px) 100vw, 80vw"
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,243,238,0.66),rgba(246,243,238,0.56))]" />

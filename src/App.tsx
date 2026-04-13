@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react"
+import { Suspense, lazy, useEffect, useState } from "react"
 import type { MouseEventHandler } from "react"
-import { CatalogPage } from "./CatalogPage"
 import { HomePage } from "./HomePage"
 import { buildAppHref, getCurrentAppRoute, type AppRoute } from "./routes"
 import { PRELOAD_VIDEO_URL } from "./site"
+
+const CatalogPage = lazy(async () => {
+  const module = await import("./CatalogPage")
+  return { default: module.CatalogPage }
+})
 
 export default function App() {
   const [route, setRoute] = useState<AppRoute>(() => getCurrentAppRoute())
@@ -89,10 +93,12 @@ export default function App() {
             </div>
           </div>
         ) : null}
-        <CatalogPage
-          homeHref={homeHref}
-          onNavigateHome={createRouteHandler("/")}
-        />
+        <Suspense fallback={<div className="min-h-screen bg-[#f6f3ee]" />}>
+          <CatalogPage
+            homeHref={homeHref}
+            onNavigateHome={createRouteHandler("/")}
+          />
+        </Suspense>
       </>
     )
   }
