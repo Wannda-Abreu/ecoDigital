@@ -11,7 +11,7 @@ function cloudinaryImage(path: string, width: number) {
 
 export const LOGO_URL =
   cloudinaryImage(
-    "v1775741260/b35c18e0-823c-4e42-b7de-2631dbc14c15_gjqw7h.png",
+    "v1776154614/LOGO_ECOMERCIA_5_xwta6w.png",
     320,
   )
 

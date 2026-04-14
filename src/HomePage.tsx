@@ -145,10 +145,10 @@ export function HomePage({
             <img
               src={LOGO_URL}
               alt="Ecomercia"
-              className="w-32 sm:w-36"
+              className="w-36 sm:w-40"
               decoding="async"
-              width={320}
-              height={90}
+              width={360}
+              height={100}
             />
             <span className="hidden rounded-full border border-[#d8d0c6] bg-[#fffdf9]/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#7d746a] lg:inline-flex">
               Digital con alma artesanal
