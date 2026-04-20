@@ -169,6 +169,8 @@ body::after {
 
   .hero-background-video--mobile {
     display: block;
+    object-fit: contain;
+    object-position: center;
   }
 }
 
