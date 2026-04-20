@@ -14,7 +14,6 @@ import {
 } from "lucide-react"
 import {
   HERO_DESKTOP_VIDEO_URL,
-  HERO_IMAGE_URL,
   HERO_MOBILE_VIDEO_URL,
   LOGO_URL,
   RESULTS_BACKGROUND_URL,
@@ -192,7 +191,6 @@ export function HomePage({
             loop
             playsInline
             preload="metadata"
-            poster={HERO_IMAGE_URL}
             aria-hidden="true"
           >
             <source src={HERO_DESKTOP_VIDEO_URL} type="video/mp4" />
@@ -205,7 +203,6 @@ export function HomePage({
             loop
             playsInline
             preload="metadata"
-            poster={HERO_IMAGE_URL}
             aria-hidden="true"
           >
             <source src={HERO_MOBILE_VIDEO_URL} type="video/mp4" />
@@ -337,7 +334,7 @@ export function HomePage({
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2.4rem] border border-[#d8d0c6] bg-[#efe8de] shadow-[0_25px_80px_rgba(86,67,51,0.1)]">
+          <div className="relative overflow-hidden rounded-[2.4rem] border border-[#d8d0c6] bg-[#efe8de] shadow-[0_25px_80px_rgba(86,67,51,0.1)] lg:w-[88%] lg:justify-self-end">
             <video
               className="h-full w-full object-cover"
               autoPlay

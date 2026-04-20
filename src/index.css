@@ -146,10 +146,6 @@ body::after {
 
 .hero-video-fallback {
   background-color: #2f2a25;
-  background-image: url("https://res.cloudinary.com/dsyfal3wa/image/upload/f_auto,q_auto:eco,c_limit,w_1920/v1776029793/ChatGPT_Image_12_abr_2026_23_36_06_xgkuyy.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .hero-background-video {

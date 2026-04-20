@@ -15,17 +15,11 @@ export const LOGO_URL =
     320,
   )
 
-export const HERO_IMAGE_URL =
-  cloudinaryImage(
-    "v1776029793/ChatGPT_Image_12_abr_2026_23_36_06_xgkuyy.png",
-    1920,
-  )
-
 export const HERO_DESKTOP_VIDEO_URL =
   `${CLOUDINARY_VIDEO_BASE}/v1776685036/desktop_2_u4dnjj.mp4`
 
 export const HERO_MOBILE_VIDEO_URL =
-  `${CLOUDINARY_VIDEO_BASE}/v1776685043/mobile_z11f98.mp4`
+  `${CLOUDINARY_VIDEO_BASE}/v1776694602/version%20mobile.mp4`
 
 export const SOLUTION_IMAGE_URL =
   `${CLOUDINARY_VIDEO_BASE}/v1776686256/sesion_2_h3ogdd.mp4`
