@@ -13,7 +13,9 @@ import {
   Users,
 } from "lucide-react"
 import {
+  HERO_DESKTOP_VIDEO_URL,
   HERO_IMAGE_URL,
+  HERO_MOBILE_VIDEO_URL,
   LOGO_URL,
   RESULTS_BACKGROUND_URL,
   SOLUTION_IMAGE_URL,
@@ -182,19 +184,32 @@ export function HomePage({
       </header>
 
       <main className="flex flex-col gap-20 pb-16 sm:gap-24 lg:gap-32">
-        <section className="relative flex min-h-[92svh] w-full items-start justify-center px-4 pb-12 pt-[50svh] sm:min-h-[88svh] sm:items-center sm:px-6 sm:py-0">
-          <img
-            src={HERO_IMAGE_URL}
-            alt=""
-            className="absolute inset-x-0 top-0 h-[44svh] w-full bg-[#2f2a25] object-cover object-center sm:inset-0 sm:h-full"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            width={1920}
-            height={1080}
-            sizes="100vw"
+        <section className="hero-video-fallback relative flex min-h-[92svh] w-full items-start justify-center px-4 pb-12 pt-[50svh] sm:min-h-[88svh] sm:items-center sm:px-6 sm:py-0">
+          <video
+            className="hero-background-video hero-background-video--desktop"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={HERO_IMAGE_URL}
             aria-hidden="true"
-          />
+          >
+            <source src={HERO_DESKTOP_VIDEO_URL} type="video/mp4" />
+          </video>
+
+          <video
+            className="hero-background-video hero-background-video--mobile"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={HERO_IMAGE_URL}
+            aria-hidden="true"
+          >
+            <source src={HERO_MOBILE_VIDEO_URL} type="video/mp4" />
+          </video>
 
           <div className="absolute inset-x-0 top-0 h-[44svh] bg-[#1f1a17]/46 sm:inset-0 sm:h-full sm:bg-[#1f1a17]/28" />
           <div className="absolute inset-x-0 top-0 h-[44svh] bg-gradient-to-b from-[#f7f1e9]/4 via-transparent to-transparent sm:inset-0 sm:h-full" />
@@ -220,8 +235,8 @@ export function HomePage({
               transition={{ delay: 0.2 }}
               className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-7 text-[#fff0de] drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] sm:mt-6 sm:text-base sm:leading-8"
             >
-              Diseñamos una presencia digital clara y contemporanea para que tu
-              marca artesanal transmita valor desde el primer vistazo.
+              Impulsamos tu marca artesanal con una presencia digital clara que
+              pone en valor tu trabajo desde el primer momento
             </motion.p>
 
             <div className="mt-7 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center">
@@ -566,3 +581,4 @@ export function HomePage({
     </div>
   )
 }
+

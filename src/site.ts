@@ -21,8 +21,14 @@ export const HERO_IMAGE_URL =
     1920,
   )
 
+export const HERO_DESKTOP_VIDEO_URL =
+  `${CLOUDINARY_VIDEO_BASE}/v1776685036/desktop_2_u4dnjj.mp4`
+
+export const HERO_MOBILE_VIDEO_URL =
+  `${CLOUDINARY_VIDEO_BASE}/v1776685043/mobile_z11f98.mp4`
+
 export const SOLUTION_IMAGE_URL =
-  `${CLOUDINARY_VIDEO_BASE}/v1775765531/Untitled_1080_x_1080_px_ypsrkt.mp4`
+  `${CLOUDINARY_VIDEO_BASE}/v1776686256/sesion_2_h3ogdd.mp4`
 
 export const RESULTS_BACKGROUND_URL =
   cloudinaryImage(
