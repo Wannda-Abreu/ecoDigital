@@ -171,6 +171,8 @@ body::after {
     display: block;
     object-fit: contain;
     object-position: center;
+    transform: scale(1.18);
+    transform-origin: center;
   }
 }
 
